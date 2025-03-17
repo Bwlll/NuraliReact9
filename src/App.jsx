@@ -6,7 +6,7 @@ const UserList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('https://fakeapi.platzi.com/en/rest/users/')
+    axios.get('https://api.escuelajs.co/api/v1/users')
       .then((response) => {
         setUsers(response.data);
         setLoading(false);
@@ -27,11 +27,12 @@ const UserList = () => {
     return <div>Loading...</div>;
   }
 
+  console.log("users", users)
   return (
     <div>
       <h1>Users List</h1>
       <ul>
-        {users.map((user, index) => (
+        {users?.map((user, index) => (
           <li key={user.id}>
             <div>
               <strong>Name:</strong> {user.name} <br />
