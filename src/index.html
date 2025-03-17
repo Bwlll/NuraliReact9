@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Users List</h1>
+        <input type="text" id="search" placeholder="Search by name or email..." class="search-bar" onkeyup="searchUsers()">
+
+        <ul id="user-list">
+            users.forEach((user, index) => { 
+                <li class="user-card">
+                    <div>
+                        <strong>Name:</strong>  user.name  <br>
+                        <strong>Email:</strong>  user.email <br>
+                        <button onclick="togglePassword( index )" class="btn-toggle">
+                            Show Password
+                        </button>
+                        <div id="password-%= index %>" class="password">
+                            <strong>Password:</strong> user.password <br />
+                        </div>
+                    </div>
+                </li>
+             }) 
+        </ul>
+
+        <div id="pagination">
+            <button id="prev" onclick="prevPage()">Prev</button>
+            <button id="next" onclick="nextPage()">Next</button>
+        </div>
+    </div>
+
+    <script src="/my-app/src/script.js"></script>
+</body>
+</html>
